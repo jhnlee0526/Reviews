@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React from 'react';
 import axios from 'axios';
@@ -9,7 +10,6 @@ import OverallStars from './OverallStars.jsx';
 import StarsList from './StarsList.jsx';
 import ReviewList from './ReviewList.jsx';
 import Modal from './Modal.jsx';
-
 
 const Wrapper = styled.div`
   padding: 48px 0px;
@@ -37,12 +37,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getRoomReviews(5);
+    const randomID = Math.floor(Math.random() * 99) + 1;
+    this.getRoomReviews(randomID);
   }
 
   async getRoomReviews(id) {
     try {
-      const response = await axios.get(`/rooms/${id}/reviews`);
+      const response = await axios.get(`http://localhost:3009/rooms/${id}/reviews`);
       this.setState(() => ({
         reviewsData: response.data,
         loaded: true,

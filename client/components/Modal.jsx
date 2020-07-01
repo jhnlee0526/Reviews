@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import { ModalContainer, ModalBox, ModalBackground } from './ModalStyle.jsx';
@@ -13,7 +14,7 @@ const Modal = ({ handleHideModal, showModal, data }) => {
   return (
     <ModalBackground onClick={handleHideModal}>
       <ModalContainer>
-        <ModalBox onClick={e => e.stopPropagation()}>
+        <ModalBox onClick={(e) => e.stopPropagation()}>
           <ModalButton handleHideModal={handleHideModal} />
           <TopBox />
           <ModalContent data={data} />
