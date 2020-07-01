@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/rooms/:roomId/reviews', (req, res) => {
+app.get('/reviews/:roomId/reviews', (req, res) => {
   const { roomId } = req.params;
   knex
     .select()
