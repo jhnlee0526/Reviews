@@ -22,14 +22,19 @@ const ReviewList = ({ reviews, modal }) => {
   let frontReviews = reviews.slice(0, 6);
   if (modal) {
     frontReviews = reviews;
+    return (
+      <Wrapper modal={modal}>
+        {frontReviews.map((el) => (
+          <LazyLoad key={el.name} once overflow height={200} throttle={200}>
+            <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
+          </LazyLoad>
+        ))}
+      </Wrapper>
+    );
   }
   return (
     <Wrapper modal={modal}>
-      {frontReviews.map((el) => (
-        <LazyLoad key={el.name} once overflow height={200} throttle={200}>
-          <Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />
-        </LazyLoad>
-      ))}
+      {frontReviews.map((el) => (<Review modal={modal} key={el.name} review={el} monthYear={dayjs(el.createdAt).format('MMMM YYYY')} />))}
     </Wrapper>
   );
 };

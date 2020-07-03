@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon ./server/index.js --watch",
     "test": "jest",
-    "build": "webpack -d --watch",
+    "build": "webpack -p --watch",
     "knex-seed": "knex migrate:rollback &&  npx knex migrate:latest && knex seed:run",
     "watsonseedmachine": "knex migrate:rollback &&  npx knex migrate:latest && knex seed:run"
   },
